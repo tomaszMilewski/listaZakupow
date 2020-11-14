@@ -1,23 +1,20 @@
-import random
-
-# Zadanie 01
-# Napisze metode ktora wykona sie x razy - podaje uzytkownik x
-# Metoda generuje x razy dowolna wartosc i weryfikuje czy jest podzielna przez 2
-# zwraca dwie wartosci: liczby podzielne przez jako liste oraz dowolny komunikat
-
-def getRandomNumbers(x):
-    lista = []
-    for i in range(0, x):
-        temp = random.randint(1,50)
-        if temp % 2 == 0:
-            print(f'liczba {temp} jest podzielna przez 2')
-            lista.append(temp)
-    return 'Lista losowych liczb podzielnych przez 2', lista
-
-
+from Ksiazka import Ksiazka, customException
 
 if __name__ == '__main__':
-    msg, lista = getRandomNumbers(50)
-    print(f'{msg} {lista}')
+    ksiazka = Ksiazka('Python. Instrukcje dla programisty',
+                      'Eric Matthes',
+                      'Helion',
+                      2000)
+    print(ksiazka);
+
+    try:
+        ksiazka.zmienRokWydania(-1)
+    except customException:
+        print('Podales rok mniejszy < 0')
+
+    try:
+        ksiazka.zmienWydawnictwo("")
+    except customException:
+        print('Wydawnictwo nie moze byc puste')
 
 
