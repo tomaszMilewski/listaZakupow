@@ -65,7 +65,7 @@ class ProductsEditor(QWidget):
         buttonRemove.setMaximumWidth(25)
         buttonRemove.setMaximumHeight(25)
         buttonRemove.clicked.connect(
-            lambda: self.removeProduct(idValueLabel))
+            lambda: self.removeProduct(idValueLabel, position))
 
         if (position % 2 == 0):
             idValueLabel.setStyleSheet("background: gray")
@@ -79,11 +79,14 @@ class ProductsEditor(QWidget):
         self.gridLayout.addWidget(imageValueLabel, position, 3)
         self.gridLayout.addWidget(buttonRemove, position, 4)
 
-    def removeProduct(self, buttonRemove):
+    def removeProduct(self, buttonRemove, position):
         for i in reversed(range(self.gridLayout.count())):
             if self.gridLayout.itemAt(i).widget() == buttonRemove:
                 for x in range(0, 5):
                     self.gridLayout.itemAt(i).widget().setParent(None)
+        products = self.reader.readProducts()
+        products.pop(position - 1)
+        self.reader.saveProducts(products)
 
     def addProduct(self):
         self.reader.addSingleProduct(self.newID.text(), self.newName.text(), self.newPrice.text(), self.newImage.text())
