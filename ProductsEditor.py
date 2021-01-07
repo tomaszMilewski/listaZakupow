@@ -1,4 +1,5 @@
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QScrollArea, QGridLayout, QLabel, QLineEdit, QPushButton
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QScrollArea, QGridLayout, QLabel, QLineEdit, QPushButton, QHBoxLayout, \
+    QMessageBox
 
 from JsonReader import JsonReader
 
@@ -14,10 +15,16 @@ class ProductsEditor(QWidget):
 
         self.layout = QVBoxLayout(self)
         self.scrollArea = QScrollArea(self)
+        self.titleBox = QScrollArea(self)
         self.scrollArea.setWidgetResizable(True)
+        self.titleBox.setFixedHeight(50)
         self.scrollAreaWidgetContents = QWidget()
+        self.titleBoxContent = QWidget()
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
+        self.gridTitle = QGridLayout(self.titleBox)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        #self.titleBox.setWidget(self.titleBoxContent)
+        self.layout.addWidget(self.titleBox)
         self.layout.addWidget(self.scrollArea)
 
         self.reader = JsonReader()
@@ -28,11 +35,11 @@ class ProductsEditor(QWidget):
         imageLabel = QLabel('Obrazek', self)
         actionLabel = QLabel('Akcja', self)
 
-        self.gridLayout.addWidget(idLabel, 0, 0, 1, 1)
-        self.gridLayout.addWidget(nameLabel, 0, 1, 1, 1)
-        self.gridLayout.addWidget(priceLabel, 0, 2, 1, 1)
-        self.gridLayout.addWidget(imageLabel, 0, 3, 1, 1)
-        self.gridLayout.addWidget(actionLabel, 0, 4, 1, 1)
+        self.gridTitle.addWidget(idLabel, 0, 0, 1 ,1)
+        self.gridTitle.addWidget(nameLabel, 0, 1, 1 ,1)
+        self.gridTitle.addWidget(priceLabel, 0, 2, 1 ,1)
+        self.gridTitle.addWidget(imageLabel, 0, 3, 1 ,1)
+        self.gridTitle.addWidget(actionLabel, 0, 4, 1 ,1)
 
         self.products = self.reader.readProducts()
         for item in self.products:
@@ -49,14 +56,18 @@ class ProductsEditor(QWidget):
         self.buttonAdd.setMaximumHeight(25)
         self.buttonAdd.clicked.connect(self.addProduct)
 
+
         self.gridLayout.addWidget(self.newID, len(self.products) + 2, 0)
-        self.gridLayout.addWidget(self.newName, len(self.products) + 2, 1)
         self.gridLayout.addWidget(self.newPrice, len(self.products) + 2, 2)
+
+
+        self.gridLayout.addWidget(self.newName, len(self.products) + 2, 1)
         self.gridLayout.addWidget(self.newImage, len(self.products) + 2, 3)
         self.gridLayout.addWidget(self.buttonAdd, len(self.products) + 2, 4)
         self.show()
 
     def addNewProduct(self, id, name, price, image, position):
+
         idValueLabel = QLabel(id, self)
         nameValueLabel = QLabel(name, self)
         priceValueLabel = QLabel(price, self)
@@ -65,7 +76,7 @@ class ProductsEditor(QWidget):
         buttonRemove.setMaximumWidth(25)
         buttonRemove.setMaximumHeight(25)
         buttonRemove.clicked.connect(
-            lambda: self.removeProduct(idValueLabel))
+            lambda: self.removeProduct(idValueLabel, position))
 
         if (position % 2 == 0):
             idValueLabel.setStyleSheet("background: gray")
@@ -79,14 +90,25 @@ class ProductsEditor(QWidget):
         self.gridLayout.addWidget(imageValueLabel, position, 3)
         self.gridLayout.addWidget(buttonRemove, position, 4)
 
-    def removeProduct(self, buttonRemove):
+    def removeProduct(self, buttonRemove, position):
         for i in reversed(range(self.gridLayout.count())):
             if self.gridLayout.itemAt(i).widget() == buttonRemove:
                 for x in range(0, 5):
                     self.gridLayout.itemAt(i).widget().setParent(None)
+        products = self.reader.readProducts()
+        products.pop(position - 1)
+        self.reader.saveProducts(products)
 
     def addProduct(self):
-        self.reader.addSingleProduct(self.newID.text(), self.newName.text(), self.newPrice.text(), self.newImage.text())
+
+        try:
+            self.reader.addSingleProduct(self.newID.text(), self.newName.text(), self.newPrice.text(), self.newImage.text())
+        except ValueError as e:
+            self.newID
+            QMessageBox.question(self, 'Błąd', 'Musisz podac nazwę i ilość',
+                                 QMessageBox.Yes)
+
+
         self.products = self.reader.readProducts()
         self.addNewProduct(self.newID.text(), self.newName.text(), self.newPrice.text(), self.newImage.text(),
                            len(self.products))

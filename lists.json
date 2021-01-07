@@ -1,0 +1,31 @@
+[
+ {
+  "list_name": "Lista 1",
+  "products": [
+   {
+    "name": "123",
+    "amount": "123",
+    "checked": false
+   }
+  ]
+ },
+ {
+  "list_name": "test123",
+  "products": [
+   {
+    "name": "123",
+    "amount": "test",
+    "checked": false
+   }
+  ]
+ },
+ {
+  "list_name": "nowalista1",
+  "products": [
+   {
+    "name": "test",
+    "amount": "12345"
+   }
+  ]
+ }
+]
