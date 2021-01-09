@@ -1,3 +1,4 @@
+from PyQt5.QtGui import QValidator, QDoubleValidator
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QScrollArea, QGridLayout, QLabel, QLineEdit, QPushButton, QCompleter, \
     QMessageBox, QDialog
 from PyQt5 import QtCore
@@ -21,20 +22,41 @@ class CreateNewList(QWidget):
 
         self.layout = QVBoxLayout(self)
         self.scrollArea = QScrollArea(self)
+        self.titleBox = QScrollArea(self)
+        #self.titleContainer = QWidget(self.titleBox)
         self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setMaximumHeight(50)
+        self.titleBox.setFixedHeight(30)
         self.scrollAreaWidgetContents = QWidget()
         self.gridLayout = QGridLayout(self.scrollAreaWidgetContents)
+        self.gridTitle = QGridLayout(self.titleBox)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-        self.layout.addWidget(self.scrollArea, alignment=QtCore.Qt.AlignTop)
+        self.layout.setSpacing(1)
+        self.layout.addWidget(self.titleBox)
+        self.layout.addWidget(self.scrollArea)
+
+
+
+
+
+
         self.listItems = []
 
         nameLabel = QLabel('Nazwa', self)
         amountLabel = QLabel('Ilosc', self)
         buttonLabel = QLabel('Akcja', self)
 
-        self.gridLayout.addWidget(nameLabel, 0, 0, alignment=QtCore.Qt.AlignTop)
-        self.gridLayout.addWidget(amountLabel, 0, 1, alignment=QtCore.Qt.AlignTop)
-        self.gridLayout.addWidget(buttonLabel, 0, 2, alignment=QtCore.Qt.AlignTop)
+        nameLabel.setFixedWidth(250)
+        amountLabel.setFixedWidth(250)
+        buttonLabel.setFixedWidth(30)
+
+        self.gridTitle.addWidget(nameLabel, 0, 0, 1, 1)
+        nameLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.gridTitle.addWidget(amountLabel, 0, 1, 1, 1)
+        amountLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.gridTitle.addWidget(buttonLabel, 0, 2, 1, 1)
+        buttonLabel.setAlignment(QtCore.Qt.AlignCenter)
+
 
         self.addInputFields(1)
         self.addSaveButton()
@@ -43,8 +65,9 @@ class CreateNewList(QWidget):
 
     def addSaveButton(self):
         self.buttonSave = QPushButton('Create New List', self)
+        self.layout.addWidget(self.buttonSave, alignment=QtCore.Qt.AlignTop)
         self.buttonSave.clicked.connect(self.showDialog)
-        self.buttonSave.move(10, self.scrollArea.height()+50)
+        self.buttonSave.setFixedWidth(100)
 
     def showDialog(self):
         self.dialog = QDialog()
@@ -72,6 +95,7 @@ class CreateNewList(QWidget):
     def addInputFields(self, position):
         self.newName = QLineEdit()
         self.newAmount = QLineEdit()
+        self.newAmount.setValidator(QDoubleValidator(999999, -999999, 8))
         self.buttonAdd = QPushButton('+', self)
 
         self.buttonAdd.clicked.connect(
@@ -89,17 +113,17 @@ class CreateNewList(QWidget):
         self.gridLayout.addWidget(self.buttonAdd, position, 2)
 
     def addNewProduct(self, name, amount, buttonAdd):
-        print(self.scrollArea.height())
         if len(name) != 0 and len(amount) != 0:
-            if self.scrollArea.height() < 550:
-                self.scrollArea.setFixedHeight(self.scrollArea.height() + 60)
-                self.buttonSave.move(10, self.scrollArea.height()+10)
+            if self.scrollArea.height() < 500:
+                self.scrollArea.setFixedHeight(self.scrollArea.height() + 30)
+                self.scrollArea.setFixedHeight(self.scrollArea.height() + 30)
+
 
         if len(name) == 0 or len(amount) == 0:
-            QMessageBox.question(self, 'Błąd', 'Musisz podac nazwę i ilość',
-                                          QMessageBox.Yes)
-
+            QMessageBox.question(self, 'Błąd', 'Musisz podac nazwę i ilość\n "Ilość" powinna być typu float',
+                                              QMessageBox.Yes)
             return
+
 
 
         self.productsToAdd.append({'name': name, 'amount': amount})
@@ -128,8 +152,8 @@ class CreateNewList(QWidget):
         if position != 0:
             self.productsToAdd.pop(position - 1)
 
-        if self.scrollArea.height() > 100:
+        if self.scrollArea.height() >= 100 and self.scrollArea.verticalScrollBar().isVisible() == False:
             self.scrollArea.setFixedHeight(self.scrollArea.height() - 30)
-            self.buttonSave.move(10, self.scrollArea.height() + 10)
+           # self.buttonSave.move(10, self.scrollArea.height() + 10)
 
 

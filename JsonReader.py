@@ -15,7 +15,7 @@ class JsonReader:
         product = {
             "id": int(id),
             "name": name,
-            "price": int(price),
+            "price": float(price),
             "image": image
         }
         products = self.readProducts()
@@ -25,7 +25,7 @@ class JsonReader:
     def saveLists(self, lists):
         print('save lists')
         with open("lists.json", "w") as json_file:
-            json.dump(lists, json_file, indent=1)
+            json.dump(lists, json_file, indent=2)
 
     def readLists(self):
         print('read lists')
