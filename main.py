@@ -1,7 +1,7 @@
 import sys
 
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QGridLayout, QVBoxLayout, QScrollArea, QLineEdit, \
-    QPushButton, QMainWindow, QTabWidget
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QGridLayout, QVBoxLayout, QScrollArea, QLineEdit, QTabWidget, \
+    QMainWindow, QPushButton, QMainWindow, QTabWidget
 
 from JsonReader import JsonReader
 from ProductLists import ProductLists

@@ -13,12 +13,33 @@ class JsonReader:
 
     def addSingleProduct(self, id, name, price, image):
         product = {
-            "id": id,
+            "id": int(id),
             "name": name,
-            "price": price,
+            "price": float(price),
             "image": image
         }
         products = self.readProducts()
         products.append(product)
-        print(products)
         self.saveProducts(products)
+
+    def saveLists(self, lists):
+        print('save lists')
+        with open("lists.json", "w") as json_file:
+            json.dump(lists, json_file, indent=2)
+
+    def readLists(self):
+        print('read lists')
+        with open("lists.json") as json_data_file:
+            data = json.load(json_data_file)
+            return data
+
+    def addSingleList(self, listName, products):
+        print('add single list')
+        list = {
+            "list_name": listName,
+             "products": products
+        }
+
+        lists = self.readLists()
+        lists.append(list)
+        self.saveLists(lists)
