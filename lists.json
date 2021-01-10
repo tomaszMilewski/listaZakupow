@@ -3,18 +3,64 @@
     "list_name": "Lista 1",
     "products": [
       {
-        "name": "123",
-        "amount": "123",
+        "name": "Frytki",
+        "amount": "1",
+        "checked": false
+      },
+      {
+        "name": "Jajka",
+        "amount": "5",
+        "checked": false
+      },
+      {
+        "name": "Dzem",
+        "amount": "1",
+        "checked": false
+      },
+      {
+        "name": "Mleko",
+        "amount": "1",
         "checked": false
       }
     ]
   },
   {
-    "list_name": "test123",
+    "list_name": "Lista 2",
     "products": [
       {
-        "name": "123",
-        "amount": "test",
+        "name": "Cukier",
+        "amount": "1",
+        "checked": false
+      },
+      {
+        "name": "Pepsi",
+        "amount": "5",
+        "checked": false
+      },
+      {
+        "name": "Coca-Cola",
+        "amount": "1",
+        "checked": false
+      },
+      {
+        "name": "Szynka",
+        "amount": "1",
+        "checked": false
+      },
+      {
+        "name": "Cebula",
+        "amount": "1",
+        "checked": false
+      },
+       {
+        "name": "Czosnek",
+        "amount": "1",
+        "checked": false
+      }
+      ,
+       {
+        "name": "Jogurt",
+        "amount": "1",
         "checked": false
       }
     ]
@@ -23,95 +69,40 @@
     "list_name": "nowalista1",
     "products": [
       {
-        "name": "test",
-        "amount": "12345"
+        "name": "Ser zolty",
+        "amount": "1",
+        "checked": false
+      },
+      {
+        "name": "Ryz",
+        "amount": "5",
+        "checked": false
+      },
+      {
+        "name": "Makaron",
+        "amount": "1",
+        "checked": false
+      },
+      {
+        "name": "Salata",
+        "amount": "1",
+        "checked": false
+      },
+      {
+        "name": "Banany",
+        "amount": "1",
+        "checked": false
+      },
+       {
+        "name": "Szpinak",
+        "amount": "1",
+        "checked": false
       }
-    ]
-  },
-  {
-    "list_name": "Test",
-    "products": []
-  },
-  {
-    "list_name": "Test1",
-    "products": [
-      {
-        "name": "asd",
-        "amount": "as"
-      },
-      {
-        "name": "das",
-        "amount": "ads"
-      },
-      {
-        "name": "asd",
-        "amount": "asd"
-      },
-      {
-        "name": "das",
-        "amount": "dsa"
-      },
-      {
-        "name": "sad",
-        "amount": "as"
-      },
-      {
-        "name": "asd",
-        "amount": "das"
-      },
-      {
-        "name": "ads",
-        "amount": "asd"
-      },
-      {
-        "name": "asd",
-        "amount": "das"
-      },
-      {
-        "name": "ads",
-        "amount": "ads"
-      },
-      {
-        "name": "ads",
-        "amount": "asd"
-      },
-      {
-        "name": "sad",
-        "amount": "asd"
-      },
-      {
-        "name": "sa",
-        "amount": "ads"
-      },
-      {
-        "name": "das",
-        "amount": "asd"
-      },
-      {
-        "name": "dsa",
-        "amount": "ass"
-      },
-      {
-        "name": "as",
-        "amount": "ads"
-      }
-    ]
-  },
-  {
-    "list_name": "Testowa1",
-    "products": [
-      {
-        "name": "as",
-        "amount": "12"
-      }
-    ]
-  },
-  {
-    "list_name": "asd",
-    "products": [
-      {
-        "name": "asd",
-        "amount": "123"
+      ,
+       {
+        "name": "Chleb",
+        "amount": "1",
+        "checked": false
       }
     ]
   }

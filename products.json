@@ -1,2 +1,22 @@
-[{"id": 2, "name": "1", "price": 1.0, "image": "cebula"}, {"id": 3, "name": "1", "price": 1.0, "image": "1"}]
+[{"id": 1, "name": "Frytki", "price": 10.0, "image": "frytki"},
+  {"id": 2, "name": "Jajka", "price": 4.0, "image": "jajka"},
+  {"id": 3, "name": "Dzem", "price": 3.5, "image": "dzem"},
+  {"id": 4, "name": "Mleko", "price": 4.0, "image": "mleko"},
+  {"id": 5, "name": "Cukier", "price": 999.0, "image": "cukier"},
+  {"id": 6, "name": "Pepsi", "price": 999.0, "image": "pepsi"},
+  {"id": 7, "name": "Coca-Cola", "price": 999.0, "image": "coca-cola"},
+  {"id": 8, "name": "Szynka", "price": 10.0 , "image": "szynka"},
+  {"id": 9, "name": "Cebula", "price": 0.1 , "image": "cebula"},
+  {"id": 10, "name": "Czosnek", "price": 2.0 , "image": "czosnek"},
+  {"id": 11, "name": "Jogurt", "price": 4.0 , "image": "czosnek"},
+  {"id": 12, "name": "Ser zolty", "price": 5.5 , "image": "ser"},
+  {"id": 13, "name": "Ryz", "price": 7.5 , "image": "ryz"},
+  {"id": 14, "name": "Makaron", "price": 10.0 , "image": "makaron"},
+  {"id": 15, "name": "Salata", "price": 10.0 , "image": "salata"},
+  {"id": 16, "name": "Banany", "price": 10.0 , "image": "banany"},
+  {"id": 17, "name": "Szpinak", "price": 10.0 , "image": "szpinak"},
+  {"id": 18, "name": "Chleb", "price": 10.0 , "image": "chleb"},
+  {"id": 19, "name": "Pomidor", "price": 10.0 , "image": "pomidor"},
+  {"id": 20, "name": "Baterie", "price": 10.0 , "image": "baterie"}
+]
 
