@@ -1,3 +1,4 @@
+from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QScrollArea, QGridLayout, QLabel, QLineEdit, QPushButton, QHBoxLayout, \
     QMessageBox
 
@@ -87,6 +88,12 @@ class ProductsEditor(QWidget):
             priceValueLabel.setStyleSheet("background: gray")
             imageValueLabel.setStyleSheet("background: gray")
 
+        pixmap = QPixmap(f'foto/{image}.png')
+        imageValueLabel.setFixedSize(50, 50)
+        imageValueLabel.setScaledContents(True)
+        pixmap.scaled(50, 50)
+        imageValueLabel.setPixmap(pixmap)
+
         self.gridLayout.addWidget(idValueLabel, position, 0)
         self.gridLayout.addWidget(nameValueLabel, position, 1)
         self.gridLayout.addWidget(priceValueLabel, position, 2)
@@ -111,8 +118,6 @@ class ProductsEditor(QWidget):
                 control = True
                 break
         try:
-            self.reader.addSingleProduct(self.newID.text(), self.newName.text(), self.newPrice.text(), self.newImage.text())
-            self.products = self.reader.readProducts()
 
             if len(self.newName.text()) == 0 or self.newID.text() == 0 or self.newPrice.text() == 0:
                 QMessageBox.question(self, 'Puste pola', '"ID", "Nazwa" oraz, "Cena" nie mogą być puste',
@@ -121,6 +126,9 @@ class ProductsEditor(QWidget):
                 QMessageBox.question(self, 'Istniejace "ID"', f'"ID" :{self.newID.text()} juz istnieje',
                                      QMessageBox.Yes)
             else:
+                self.reader.addSingleProduct(self.newID.text(), self.newName.text(), self.newPrice.text(),
+                                             self.newImage.text())
+                self.products = self.reader.readProducts()
 
                 self.products = self.reader.readProducts()
                 self.addNewProduct(self.newID.text(), self.newName.text(), self.newPrice.text(), self.newImage.text(),

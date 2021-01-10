@@ -1,100 +1,118 @@
 [
- {
-  "list_name": "Lista 1",
-  "products": [
-   {
-    "name": "123",
-    "amount": "123",
-    "checked": false
-   }
-  ]
- },
- {
-  "list_name": "test123",
-  "products": [
-   {
-    "name": "123",
-    "amount": "test",
-    "checked": false
-   }
-  ]
- },
- {
-  "list_name": "nowalista1",
-  "products": [
-   {
-    "name": "test",
-    "amount": "12345"
-   }
-  ]
- },
- {
-  "list_name": "Test",
-  "products": []
- },
- {
-  "list_name": "Test1",
-  "products": [
-   {
-    "name": "asd",
-    "amount": "as"
-   },
-   {
-    "name": "das",
-    "amount": "ads"
-   },
-   {
-    "name": "asd",
-    "amount": "asd"
-   },
-   {
-    "name": "das",
-    "amount": "dsa"
-   },
-   {
-    "name": "sad",
-    "amount": "as"
-   },
-   {
-    "name": "asd",
-    "amount": "das"
-   },
-   {
-    "name": "ads",
-    "amount": "asd"
-   },
-   {
-    "name": "asd",
-    "amount": "das"
-   },
-   {
-    "name": "ads",
-    "amount": "ads"
-   },
-   {
-    "name": "ads",
-    "amount": "asd"
-   },
-   {
-    "name": "sad",
-    "amount": "asd"
-   },
-   {
-    "name": "sa",
-    "amount": "ads"
-   },
-   {
-    "name": "das",
-    "amount": "asd"
-   },
-   {
-    "name": "dsa",
-    "amount": "ass"
-   },
-   {
-    "name": "as",
-    "amount": "ads"
-   }
-  ]
- }
+  {
+    "list_name": "Lista 1",
+    "products": [
+      {
+        "name": "123",
+        "amount": "123",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "list_name": "test123",
+    "products": [
+      {
+        "name": "123",
+        "amount": "test",
+        "checked": false
+      }
+    ]
+  },
+  {
+    "list_name": "nowalista1",
+    "products": [
+      {
+        "name": "test",
+        "amount": "12345"
+      }
+    ]
+  },
+  {
+    "list_name": "Test",
+    "products": []
+  },
+  {
+    "list_name": "Test1",
+    "products": [
+      {
+        "name": "asd",
+        "amount": "as"
+      },
+      {
+        "name": "das",
+        "amount": "ads"
+      },
+      {
+        "name": "asd",
+        "amount": "asd"
+      },
+      {
+        "name": "das",
+        "amount": "dsa"
+      },
+      {
+        "name": "sad",
+        "amount": "as"
+      },
+      {
+        "name": "asd",
+        "amount": "das"
+      },
+      {
+        "name": "ads",
+        "amount": "asd"
+      },
+      {
+        "name": "asd",
+        "amount": "das"
+      },
+      {
+        "name": "ads",
+        "amount": "ads"
+      },
+      {
+        "name": "ads",
+        "amount": "asd"
+      },
+      {
+        "name": "sad",
+        "amount": "asd"
+      },
+      {
+        "name": "sa",
+        "amount": "ads"
+      },
+      {
+        "name": "das",
+        "amount": "asd"
+      },
+      {
+        "name": "dsa",
+        "amount": "ass"
+      },
+      {
+        "name": "as",
+        "amount": "ads"
+      }
+    ]
+  },
+  {
+    "list_name": "Testowa1",
+    "products": [
+      {
+        "name": "as",
+        "amount": "12"
+      }
+    ]
+  },
+  {
+    "list_name": "asd",
+    "products": [
+      {
+        "name": "asd",
+        "amount": "123"
+      }
+    ]
+  }
 ]

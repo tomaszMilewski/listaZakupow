@@ -7,10 +7,11 @@ from JsonReader import JsonReader
 
 
 class CreateNewList(QWidget):
-    def __init__(self):
+    def __init__(self, reloadLists):
         super().__init__()
         self.initUI()
         self.productsToAdd = []
+        self.reloadLists = reloadLists
 
     def initUI(self):
         self.setGeometry(0, 0, 600, 600)
@@ -86,8 +87,8 @@ class CreateNewList(QWidget):
     def confirm(self):
         self.dialog.reject()
         listName = self.listName.text()
-        print(listName)
         self.reader.addSingleList(listName, self.productsToAdd)
+        self.reloadLists()
 
     def cancel(self):
         self.dialog.reject()
